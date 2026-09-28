@@ -1,11 +1,12 @@
 package org.example
 import org.example.dresseur.Entraineur
 import org.example.monstres.EspeceMonstre
+import org.example.monde.Zone
 
-
-
+//Player
 var joueur = Entraineur(1,"Sacha",100)
 
+//pokemon
 var arcko = EspeceMonstre(
     1, "arcko", "plante",
     9, 11, 10, 12, 14, 60,
@@ -33,11 +34,17 @@ var grenousse = EspeceMonstre(
     "Calme, rêveur, mystérieux"
 )
 
+//Zone
+var route1 = Zone(1,"route1",5,mutableListOf(ouisticram))
+var route2 = Zone(2,"route2",5,mutableListOf(arcko))
+
 
 fun main() {
+    route1.zoneSuivante = route2
+    route2.zonePrecedente = route1
     //joueur.afficheDetail()
-    println(ouisticram.afficheArt())
-    println(grenousse.afficheArt())
+    //println(ouisticram.afficheArt())
+    //println(grenousse.afficheArt())
     println(arcko.afficheArt())
 }
 /**
