@@ -39,9 +39,11 @@ fun main() {
         //monstre1.attaquer(monstre3)
         //println("PV de Grenousse après : ${monstre3.pv}")
     ///renommer teste
-        println(monstre1.nom)
-        monstre1.renommer()
-        println(monstre1.nom)
+        //println(monstre1.nom)
+        //monstre1.renommer()
+        //println(monstre1.nom)
+    ///afficher detail teste
+    monstre1.afficheDetail()
 }
 /**
  * Change la couleur du message donné selon le nom de la couleur spécifié.

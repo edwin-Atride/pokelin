@@ -118,8 +118,19 @@ fun attaquer(cible: IndividuMonstre){
         }
     }
 
+    fun afficheDetail() {
 
+        println(espece.afficheArt())
 
+        println("====================")
+        println("Nom : $nom    Niveau : $niveau")
+        println("Exp : $exp")
+        println("PV : $pv / $pvMax")
+        println("====================")
+        println("Atq : $attaque    Def : $defense    Vitesse : $vitesse")
+        println("AtqSpe : $attaqueSpe    DefSpe : $defenseSpe")
+        println("====================")
+    }
 
 
 
