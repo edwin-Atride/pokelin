@@ -1,7 +1,27 @@
 package org.example.monstres
 import java.io.File
 
-
+/**
+ *
+ *    * @property id Identifiant de l'espèce.
+ *      * @property nom Nom de l'espèce, utilisé aussi pour retrouver son art ASCII.
+ *      * @property type Élément de l'espèce, par exemple Feu, Eau ou Plante.
+ *      * @property baseAttaque Valeur de départ de l'attaque physique.
+ *      * @property baseDefense Valeur de départ de la défense physique.
+ *      * @property baseVitesse Valeur de départ de la vitesse.
+ *      * @property baseAttaqueSpe Valeur de départ de l'attaque spéciale.
+ *      * @property baseDefenseSpe Valeur de départ de la défense spéciale.
+ *      * @property basePv Valeur de départ des points de vie maximum.
+ *      * @property modAttaque Croissance de l'attaque lors d'une montée de niveau.
+ *      * @property modDefense Croissance de la défense lors d'une montée de niveau.
+ *      * @property modVitesse Croissance de la vitesse lors d'une montée de niveau.
+ *      * @property modAttaqueSpe Croissance de l'attaque spéciale lors d'une montée de niveau.
+ *      * @property modDefenseSpe Croissance de la défense spéciale lors d'une montée de niveau.
+ *      * @property modPv Croissance des points de vie maximum lors d'une montée de niveau.
+ *      * @property description Texte présentant l'espèce.
+ *      * @property particularites Traits qui distinguent cette espèce.
+ *      * @property caractères Traits de caractère associés à cette espèce
+ */
 class EspeceMonstre(
     var id : Int,
     var nom: String,
@@ -32,24 +52,6 @@ class EspeceMonstre(
      *
      * @param deFace Détermine si l'art affiché est de face (true) ou de
     dos (false).
-     * @property id Identifiant de l'espèce.
-     * @property nom Nom de l'espèce, utilisé aussi pour retrouver son art ASCII.
-     * @property type Élément de l'espèce, par exemple Feu, Eau ou Plante.
-     * @property baseAttaque Valeur de départ de l'attaque physique.
-     * @property baseDefense Valeur de départ de la défense physique.
-     * @property baseVitesse Valeur de départ de la vitesse.
-     * @property baseAttaqueSpe Valeur de départ de l'attaque spéciale.
-     * @property baseDefenseSpe Valeur de départ de la défense spéciale.
-     * @property basePv Valeur de départ des points de vie maximum.
-     * @property modAttaque Croissance de l'attaque lors d'une montée de niveau.
-     * @property modDefense Croissance de la défense lors d'une montée de niveau.
-     * @property modVitesse Croissance de la vitesse lors d'une montée de niveau.
-     * @property modAttaqueSpe Croissance de l'attaque spéciale lors d'une montée de niveau.
-     * @property modDefenseSpe Croissance de la défense spéciale lors d'une montée de niveau.
-     * @property modPv Croissance des points de vie maximum lors d'une montée de niveau.
-     * @property description Texte présentant l'espèce.
-     * @property particularites Traits qui distinguent cette espèce.
-     * @property caractères Traits de caractère associés à cette espèce
      * La valeur par défaut est true.
      * @return Une chaîne de caractères contenant l'art ASCII du monstre
     avec les codes couleur ANSI.

@@ -1,6 +1,6 @@
 package org.example.monstres
-
-
+import kotlin.math.roundToInt
+import kotlin.math.pow
 import org.example.dresseur.Entraineur
 
 /**
@@ -42,14 +42,81 @@ class IndividuMonstre(
         }
 
 
+    var exp: Double = 0.0
+        get() = field
+        set(value) {
+            field = value
+
+            val estNiveau1 = niveau == 1
+
+            while (field >= palierExp(niveau)) {
+
+                levelUp()
+
+                if (estNiveau1 == false) {
+                    println("Le monstre $nom est maintenant niveau $niveau !")
+                }
+            }
+        }
+
+    fun palierExp(niveau: Int): Double {
+        return 100 * (niveau - 1).toDouble().pow(2.0)
+    }
 
 
+    /**
+     * Augmente le niveau du monstre et ses caractéristiques.
+     */
+    fun levelUp() {
+        niveau++
+
+        attaque += (espece.modAttaque * potentiel).roundToInt() + (-2..2).random()
+        defense += (espece.modDefense * potentiel).roundToInt() + (-2..2).random()
+        vitesse += (espece.modVitesse * potentiel).roundToInt() + (-2..2).random()
+        attaqueSpe += (espece.modAttaqueSpe * potentiel).roundToInt() + (-2..2).random()
+        defenseSpe += (espece.modDefenseSpe * potentiel).roundToInt() + (-2..2).random()
+
+        val ancienPvMax = pvMax
+
+        pvMax += (espece.modPv * potentiel).roundToInt() + (-5..5).random()
+
+        val pvGagnes = pvMax - ancienPvMax
+
+        pv += pvGagnes
+    }
+    init {
+        this.exp = expInit // applique le setter et déclenche un éventuel level-up
+    }
 
 
+fun attaquer(cible: IndividuMonstre){
+    val degatBrut = this.attaque
+
+    var degatTotal = degatBrut - (this.defense / 2)
+
+    if (degatTotal < 1) {
+        degatTotal = 1
+    }
+
+    val pvAvant = cible.pv
+
+    cible.pv -= degatTotal
+
+    val pvApres = cible.pv
+
+    println("$nom inflige ${pvAvant - pvApres} dégâts à ${cible.nom}")
+}
 
 
+    fun renommer() {
+        println("Nouveau nom pour votre Pokémon :")
 
+        var nouveauNom = readln()
 
+        if (nouveauNom.isNotEmpty()) {
+            this.nom = nouveauNom
+        }
+    }
 
 
 
