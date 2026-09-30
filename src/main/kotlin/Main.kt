@@ -3,6 +3,8 @@ import org.example.dresseur.Entraineur
 import org.example.monstres.EspeceMonstre
 import org.example.monde.Zone
 import org.example.monstres.IndividuMonstre
+import org.example.item.Badge
+import  org.example.item.MonsterKube
 
 //Player
 var joueur = Entraineur(1,"Sacha",100)
@@ -18,6 +20,13 @@ var grenousse = EspeceMonstre(7, "grenousse", "eau", 10, 11, 9, 14, 14, 55, 9.0,
 //var route1 = Zone(1,"route1",5,mutableListOf(ouisticram))
 //var route2 = Zone(2,"route2",5,mutableListOf(arcko))
 
+//pokeball
+val monsterKube = MonsterKube(
+    1,
+    "Monster Kube",
+    "Permet de capturer un monstre sauvage.",
+    100.0
+)
 
 fun main() {
     //route1.zoneSuivante = route2
@@ -43,7 +52,20 @@ fun main() {
         //monstre1.renommer()
         //println(monstre1.nom)
     ///afficher detail teste
-    monstre1.afficheDetail()
+        monstre1.afficheDetail()
+    ///teste badge
+        //val badge = Badge(1,"roche","gagner face au champion",joueur)
+        //println(badge.nom)
+        //println(badge.description)
+        //println(badge.champion)
+    ///teste capture
+        monsterKube.utiliser(monstre1)
+        println()
+        println("===== MON EQUIPE =====")
+
+        for (monstre in joueur.equipeMonstre) {
+            println("${monstre.nom} - Niveau ${monstre.niveau} - PV ${monstre.pv}/${monstre.pvMax}")
+        }
 }
 /**
  * Change la couleur du message donné selon le nom de la couleur spécifié.
